@@ -78,7 +78,7 @@ const products = [
   },
   {
     model: "HP Omen 17",
-    purpose: "Gaming",
+    purpose: "Gamingsssss",
     price: 1700,
     manufacturer: "HP",
     imageUrl:
