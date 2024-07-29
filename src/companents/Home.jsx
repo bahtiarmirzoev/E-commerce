@@ -1,5 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
+import { Link } from "react-router-dom";
+import Catalog from "./Catalog";
 
 const Home = () => {
   const settings = {
@@ -62,46 +64,55 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      {/* Header Section */}
-      <header className="bg-black text-white p-6 text-center">
-        <h1 className="text-4xl font-bold">Welcome to Laptop Store</h1>
-        <p className="mt-2">Find the best laptops for all your needs</p>
+    <div className="min-h-screen bg-gradient-to-r from-gray-100 to-gray-300">
+      <header className="bg-gradient-to-r from-black to-gray-800 text-white p-8 text-center shadow-lg">
+        <h1 className="text-5xl font-extrabold">Welcome to Laptop Store</h1>
+        <p className="mt-4 text-lg">Find the best laptops for all your needs</p>
       </header>
 
-      {/* Main Content Section */}
-      <main className="p-6">
-        {/* Feature Section */}
+      <main className="p-8">
         <section className="text-center">
-          <h2 className="text-3xl font-semibold mb-6">Featured Laptops</h2>
+          <h2 className="text-4xl font-bold mb-8 text-gray-800">
+            Featured Laptops
+          </h2>
           <Slider {...settings}>
             {laptops.map((laptop, index) => (
-              <div key={index} className="bg-white p-4 rounded-lg shadow-md">
+              <div
+                key={index}
+                className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300"
+              >
                 <img
                   src={laptop.src}
                   alt={laptop.model}
-                  className="w-full h-full object-cover rounded-t-lg"
+                  className="w-full h-56 object-cover rounded-t-lg"
                 />
-                <h3 className="text-xl font-bold mt-4">{laptop.model}</h3>
-                <p className="text-gray-700 mt-2">{laptop.price}</p>
-                <button className="bg-yellow-300 text-white px-4 py-2 rounded mt-4 hover:bg-yellow-700">
-                  Buy Now
-                </button>
+                <h3 className="text-2xl font-bold mt-4 text-gray-900">
+                  {laptop.model}
+                </h3>
+                <p className="text-lg text-gray-700 mt-2">{laptop.price}</p>
+                <Link to="/Catalog">
+                  <button className="bg-yellow-400 text-white px-6 py-3 rounded mt-6 hover:bg-yellow-600 transition-colors duration-300">
+                    Buy now
+                  </button>
+                </Link>
               </div>
             ))}
           </Slider>
         </section>
 
-        {/* Contact Section */}
-        <section className="mt-12 text-center">
-          <h2 className="text-3xl font-semibold mb-6">Get in Touch</h2>
-          <p className="text-gray-700 max-w-2xl mx-auto">
+        <section className="mt-16 text-center">
+          <h2 className="text-4xl font-bold mb-8 text-gray-800">
+            Get in Touch
+          </h2>
+          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
             Have questions? Need help choosing the right laptop? Contact our
             friendly and knowledgeable team today!
           </p>
-          <button className="bg-yellow-300 text-white px-4 py-2 rounded mt-4 hover:bg-yellow-700">
-            Contact Us
-          </button>
+          <Link to="/Contact">
+            <button className="bg-yellow-400 text-white px-6 py-3 rounded mt-6 hover:bg-yellow-600 transition-colors duration-300">
+              Contact Us
+            </button>
+          </Link>
         </section>
       </main>
     </div>

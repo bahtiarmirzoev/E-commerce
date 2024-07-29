@@ -1,6 +1,4 @@
-// src/components/Catalog.js
 import React from "react";
-
 const products = [
   {
     model: "Dell XPS 13",
